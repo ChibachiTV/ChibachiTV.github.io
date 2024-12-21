@@ -29,7 +29,6 @@
             border-radius: 50%;
             width: 100px;
             height: 100px;
-            margin: 0 auto 1rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         .skills-container {
@@ -107,9 +106,10 @@
         .project-item img {
             width: 300px;
             height: auto;
+            max-height: 300px;
+            max-width: 300px;
             border-radius: 5%;
-            margin-bottom: 10px;
-            
+            margin-bottom: 10px;            
         }
         .project-item:hover {
             transform: scale(1.05); /* Slight zoom effect on hover */
@@ -126,8 +126,12 @@
         .footer-contact {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            scale: 125%;
+            gap: 3rem;
+            margin-top: 1rem;
+        }
+        .footer-contact a:hover{
+            transform: scale(1.5);
         }
         header a, footer a {
             color: #fff; /* Hover and focus states for footer links will be black */
@@ -141,19 +145,19 @@
     <h1>Chibachi</h1>
     <div class="footer-contact">
         <a href="https://github.com/jnho228" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-github"></i> Github
+            <i class="fa-brands fa-github"></i>
         </a>
         <a href="https://bsky.app/profile/chibachi.bsky.social" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-bluesky"></i> Bluesky
+            <i class="fa-brands fa-bluesky"></i>
         </a>
         <a href="https://www.twitch.tv/chibachitv" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-twitch"></i> Twitch
+            <i class="fa-brands fa-twitch"></i>
         </a>
         <a href="https://chibachi.itch.io/" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-itch-io"></i> itch.io
+            <i class="fa-brands fa-itch-io"></i>
         </a>
         <a href="mailto:chibachi.tv@gmail.com">
-            <i class="fas fa-envelope"></i> Email
+            <i class="fas fa-envelope"></i>
         </a>
     </div>
 </header>
@@ -167,8 +171,8 @@
         <div class="skills-container">
             <ul class="skills-column">
                 <h3>Languages</h3>
-                <li>C++</li>
                 <li>C#</li>
+                <li>C++</li>
                 <li>GDScript</li>
                 <li>Lua</li>
             </ul>
@@ -180,9 +184,11 @@
                 <li>Illustrator</li>
             </ul>
             <ul class="skills-column">
-                <h3>Engines</h3>
+                <h3>Engines / API</h3>
                 <li>Unity</li>
                 <li>Godot</li>
+                <li>SFML</li>
+                <li>SDL</li>
             </ul>
         </div>
     </section>
@@ -211,7 +217,7 @@
                     <!-- 星辰再生 ~ Rho's Odyssey -->
                     <div class="project-item">
                         <a href="https://chibachi.itch.io/rhos-odyssey" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.itch.zone/aW1hZ2UvMjY5MTAzNC8xNjIyNTIyOS5wbmc=/original/0DGlyd.png" alt="Project 2">
+                            <img src="https://img.itch.zone/aW1hZ2UvMjY5MTAzNC8xNjIyNTIyOS5wbmc=/original/0DGlyd.png" alt="Project 3">
                             <h3>星辰再生 ~ Rho's Odyssey</h3>
                         </a>
                     </div>
@@ -219,7 +225,7 @@
                     <!-- Starship Sentinel: Insurgency -->
                     <div class="project-item">
                         <a href="https://chibachi.itch.io/starship-sentinel-insurgency" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.itch.zone/aW1hZ2UvMjA0MTE1My8xMjEwMjQ1Mi5wbmc=/original/E0AuCQ.png" alt="Project 2">
+                            <img src="https://img.itch.zone/aW1hZ2UvMjA0MTE1My8xMjEwMjQ1Mi5wbmc=/original/E0AuCQ.png" alt="Project 4">
                             <h3>Starship Sentinel: Insurgency</h3>
                         </a>
                     </div>
@@ -227,7 +233,7 @@
                     <!-- Serpent of the Storm ~ Fall of Yamata-no-Orochi -->
                     <div class="project-item">
                         <a href="https://chibachi.itch.io/serpent-of-the-storm-fall-of-yamata-no-orochi" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.itch.zone/aW1hZ2UvMjQ3ODMyMy8xNjAwMjY4Ni5wbmc=/original/wa7rAk.png" alt="Project 2">
+                            <img src="https://img.itch.zone/aW1hZ2UvMjQ3ODMyMy8xNjAwMjY4Ni5wbmc=/original/wa7rAk.png" alt="Project 5">
                             <h3>Serpent of the Storm ~ Fall of Yamata-no-Orochi</h3>
                         </a>
                     </div>
@@ -235,8 +241,24 @@
                     <!-- Half Moon Manor -->
                     <div class="project-item">
                         <a href="https://chibachi.itch.io/half-moon-manor" target="_blank" rel="noopener noreferrer">
-                            <img src="https://img.itch.zone/aW1hZ2UvMjAwNTI3Ni8xMTgwNTUxNC5wbmc=/original/Hvci2A.png" alt="Project 2">
+                            <img src="https://img.itch.zone/aW1hZ2UvMjAwNTI3Ni8xMTgwNTUxNC5wbmc=/original/Hvci2A.png" alt="Project 6">
                             <h3>Half Moon Manor</h3>
+                        </a>
+                    </div>
+
+                    <!-- The Ides of March -->
+                    <div class="project-item">
+                        <a href="https://chibachi.itch.io/the-ides-of-march" target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.itch.zone/aW1hZ2UvNjAxNjg1LzQ5MDE4OTQucG5n/original/SNIkkG.png" alt="Project 7">
+                            <h3>The Ides of March</h3>
+                        </a>
+                    </div>
+
+                    <!-- Undefined Esotericism -->
+                    <div class="project-item">
+                        <a href="https://chibachi.itch.io/undefined-esotericism" target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.itch.zone/aW1hZ2UvNjEyMzg5LzU5NTQ0ODcucG5n/original/L8cNuQ.png" alt="Project 8">
+                            <h3>Undefined Esotericism</h3>
                         </a>
                     </div>
                 </div>
@@ -248,24 +270,24 @@
 </div>
 
 <footer>
-    <p>&copy; 2024 Chibachi - All Rights Reserved</p>
     <div class="footer-contact">
         <a href="https://github.com/jnho228" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-github"></i> Github
+            <i class="fa-brands fa-github"></i>
         </a>
         <a href="https://bsky.app/profile/chibachi.bsky.social" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-bluesky"></i> Bluesky
+            <i class="fa-brands fa-bluesky"></i>
         </a>
         <a href="https://www.twitch.tv/chibachitv" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-twitch"></i> Twitch
+            <i class="fa-brands fa-twitch"></i>
         </a>
         <a href="https://chibachi.itch.io/" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-itch-io"></i> itch.io
+            <i class="fa-brands fa-itch-io"></i>
         </a>
         <a href="mailto:chibachi.tv@gmail.com">
-            <i class="fas fa-envelope"></i> Email
+            <i class="fas fa-envelope"></i>
         </a>
     </div>
+    <p>&copy; 2024 Chibachi - All Rights Reserved</p>
 </footer>
 
 <script>
