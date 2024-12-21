@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chibachi Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Poppins", serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #0C345D;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .contact-photo {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .skills-container {
+            display: flex;
+            justify-content: center; /* Distribute space between the columns */
+            width: 100%;
+        }
+        .skills-column {
+            list-style-type: none; /* Remove bullet points */
+            width: 25%; /* Adjust the width as needed */
+            padding: 0%;
+        }
+        .skills-column li {
+            margin-bottom: 10px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            flex: 1;
+        }
+        section {
+            padding: 20px 0;
+        }
+        h2 {
+            color: #333;
+        }
+        .about-me {
+            text-align: center;
+        }
+        .projects {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-container {
+            position: relative;
+            padding: 50px;
+            overflow: hidden;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.1s ease-in-out; /* Smooth transition for hover effect */
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+        .carousel-button:hover {
+            transform: scale(1.5); /* Slight zoom effect on hover */
+        }
+        .project-item {
+            width: 300px;
+            margin-right: 25px;
+            cursor: pointer;
+            text-align: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5%;
+            transition: transform 0.1s ease-in-out; /* Smooth transition for hover effect */
+        }
+        .project-item img {
+            width: 300px;
+            height: auto;
+            border-radius: 5%;
+            margin-bottom: 10px;
+            
+        }
+        .project-item:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+            background-color: #ddd; /* Lighter background to distinguish it from others */
+        }
+        footer {
+            background-color: #0C345D;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            width: 100%;
+            bottom: 0;
+        }
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        header a, footer a {
+            color: #fff; /* Hover and focus states for footer links will be black */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://cdn.bsky.app/img/avatar/plain/did:plc:6vdf3r2eh4v5mmvdbkoc3e57/bafkreicjutgsbhvdxvcxodtnhrvsk4roknlkzmpf5bzfzwxse7e3zekg5u@jpeg" alt="Contact Photo" class="contact-photo">
+    <h1>Chibachi</h1>
+    <div class="footer-contact">
+        <a href="https://github.com/jnho228" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i> Github
+        </a>
+        <a href="https://bsky.app/profile/chibachi.bsky.social" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-bluesky"></i> Bluesky
+        </a>
+        <a href="https://www.twitch.tv/chibachitv" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-twitch"></i> Twitch
+        </a>
+        <a href="https://chibachi.itch.io/" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-itch-io"></i> itch.io
+        </a>
+        <a href="mailto:chibachi.tv@gmail.com">
+            <i class="fas fa-envelope"></i> Email
+        </a>
+    </div>
+</header>
+
+<div class="container">
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-me">
+            <p>I'm a Japan-based programmer, composer, and graphic designer who enjoys making bullet hells.</p>
+        </div>
+        <div class="skills-container">
+            <ul class="skills-column">
+                <h3>Languages</h3>
+                <li>C++</li>
+                <li>C#</li>
+                <li>GDScript</li>
+                <li>Lua</li>
+            </ul>
+            <ul class="skills-column">
+                <h3>Software</h3>
+                <li>Affinity Photo</li>
+                <li>Affinity Designer</li>
+                <li>Photoshop</li>
+                <li>Illustrator</li>
+            </ul>
+            <ul class="skills-column">
+                <h3>Engines</h3>
+                <li>Unity</li>
+                <li>Godot</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>My Games</h2>
+        <div class="projects">
+            <div class="carousel-container">
+                <div class="carousel-inner">
+                    <!-- Pomelo vs. the Universe -->
+                    <div class="project-item">
+                        <a href="https://chibachi.itch.io/pomelo-vs-the-universe" target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.itch.zone/aW1hZ2UvMTE2MDIxNy82NzUwNDQ5LnBuZw==/original/x026iC.png" alt="Project 1">
+                            <h3>Pomelo vs. the Universe</h3>
+                        </a>
+                    </div>
+
+                    <!-- Oregon Nell -->
+                    <div class="project-item">
+                        <a href="https://chibachi.itch.io/oregon-nell" target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.itch.zone/aW1hZ2UvMTQ4ODA1NS8xMTUzMjY0OC5wbmc=/original/sUfhF2.png" alt="Project 2">
+                            <h3>Oregon Nell</h3>
+                        </a>
+                    </div>
+
+                    <!-- 星辰再生 ~ Rho's Odyssey -->
+                    <div class="project-item">
+                        <a href="https://chibachi.itch.io/rhos-odyssey" target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.itch.zone/aW1hZ2UvMjY5MTAzNC8xNjIyNTIyOS5wbmc=/original/0DGlyd.png" alt="Project 2">
+                            <h3>星辰再生 ~ Rho's Odyssey</h3>
+                        </a>
+                    </div>
+
+                    <!-- Starship Sentinel: Insurgency -->
+                    <div class="project-item">
+                        <a href="https://chibachi.itch.io/starship-sentinel-insurgency" target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.itch.zone/aW1hZ2UvMjA0MTE1My8xMjEwMjQ1Mi5wbmc=/original/E0AuCQ.png" alt="Project 2">
+                            <h3>Starship Sentinel: Insurgency</h3>
+                        </a>
+                    </div>
+
+                    <!-- Serpent of the Storm ~ Fall of Yamata-no-Orochi -->
+                    <div class="project-item">
+                        <a href="https://chibachi.itch.io/serpent-of-the-storm-fall-of-yamata-no-orochi" target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.itch.zone/aW1hZ2UvMjQ3ODMyMy8xNjAwMjY4Ni5wbmc=/original/wa7rAk.png" alt="Project 2">
+                            <h3>Serpent of the Storm ~ Fall of Yamata-no-Orochi</h3>
+                        </a>
+                    </div>
+
+                    <!-- Half Moon Manor -->
+                    <div class="project-item">
+                        <a href="https://chibachi.itch.io/half-moon-manor" target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.itch.zone/aW1hZ2UvMjAwNTI3Ni8xMTgwNTUxNC5wbmc=/original/Hvci2A.png" alt="Project 2">
+                            <h3>Half Moon Manor</h3>
+                        </a>
+                    </div>
+                </div>
+                <button id="prevButton" class="carousel-button prev">&#10094;</button>
+                <button id="nextButton" class="carousel-button next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Chibachi - All Rights Reserved</p>
+    <div class="footer-contact">
+        <a href="https://github.com/jnho228" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github"></i> Github
+        </a>
+        <a href="https://bsky.app/profile/chibachi.bsky.social" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-bluesky"></i> Bluesky
+        </a>
+        <a href="https://www.twitch.tv/chibachitv" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-twitch"></i> Twitch
+        </a>
+        <a href="https://chibachi.itch.io/" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-itch-io"></i> itch.io
+        </a>
+        <a href="mailto:chibachi.tv@gmail.com">
+            <i class="fas fa-envelope"></i> Email
+        </a>
+    </div>
+</footer>
+
+<script>
+    // Simple script to add basic carousel functionality
+    let currentSlide = 0;
+    const items = document.querySelectorAll('.project-item');
+    const totalItems = items.length;
+    const carouselInner = document.getElementById('carouselInner');
+    let autoSlideInterval;
+
+    function showNextSlide() {
+        currentSlide = (currentSlide + 1) % totalItems;
+        updateCarousel();
+    }
+
+    function showPrevSlide() {
+        currentSlide = (currentSlide - 1 + totalItems) % totalItems;
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        const offset = -currentSlide * 345; // Assuming each item takes about 320px width
+        document.querySelector('.carousel-inner').style.transform = `translateX(${offset}px)`;
+    }
+
+    // Start automatic sliding
+    autoSlideInterval = setInterval(showNextSlide, 3000); // Change every 3 seconds
+
+    // Function to pause automatic sliding
+    function pauseAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Add event listeners for navigation buttons
+    const nextButton = document.getElementById('nextButton');
+    const prevButton = document.getElementById('prevButton');
+
+    nextButton.addEventListener('click', () => {
+        showNextSlide();
+        pauseAutoSlide();
+        autoSlideInterval = setInterval(showNextSlide, 3000);
+    });
+
+    prevButton.addEventListener('click', () => {
+        showPrevSlide();
+        pauseAutoSlide();
+        autoSlideInterval = setInterval(showNextSlide, 3000);
+    });
+</script>
+</body>
+</html>
