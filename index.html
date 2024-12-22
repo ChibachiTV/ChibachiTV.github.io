@@ -190,13 +190,19 @@
             position: fixed;
             bottom: 20px;
             right: 30px;
-            padding: 15px;
-            border-radius: 4px;
-            background-color: #0C345D;
+            padding: 15px 30px; /* Increased padding for a more substantial look */
+            border-radius: 30px;
+            background-color: #0C345D; /* Darker background color */
             color: white;
             text-decoration: none;
             font-size: 20px;
             cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+        }
+        #back-to-top-button:hover {
+            background-color: #0B2F46; /* Slightly darker color on hover */
+            transform: scale(1.2);
         }
         @media (max-width: 600px) {
             /* Adjust styles for screens smaller than 600px */
@@ -205,7 +211,7 @@
                 font-size: 0.85em;
             }
             .footer-contact {
-                font-size: 1em;
+                gap: 1.5rem;
             }
         }
     </style>
@@ -243,7 +249,7 @@
     <section id="about">
         <h2>About Me</h2>
         <div class="about-me">
-            <p>I'm a Japan-based programmer, composer, and graphic designer who enjoys making bullet hells.</p>
+            <p>I'm a Japan-based programmer, composer, and graphic designer with expertise in creating engaging bullet hell games. I am passionate about pushing the boundaries of game design and development. I want to create a variety of games that mix genres and play styles in order to create a compelling narrative with every game.</p>
         </div>
         <div class="skills-container">
             <ul class="skills-column">
@@ -267,6 +273,11 @@
                 <li>SFML</li>
                 <li>SDL</li>
             </ul>
+        </div>
+        <div class = "achievements">
+            <h3>🏆 Achievements 🏆</h3>
+            <p><a href="https://chibachi.itch.io/pomelo-vs-the-universe">Pomelo vs. the Universe</a> got top 10 for Presentation and Enjoyment in the <a href="https://itch.io/jam/major-jam-4-cosmic">Major Jam 4: Cosmic</a> game jam.</p>
+            <p><a href="https://chibachi.itch.io/starship-sentinel-insurgency">Starship Sentinel: Insurgency</a> got top 10 for Fun in the <a href="https://itch.io/jam/bullet-hell-jam-2023">Bullet Hell Jam 2023</a> game jam.</p>
         </div>
     </section>
 
@@ -343,7 +354,7 @@
                 <button id="nextButton" class="carousel-button next">&#10095;</button>
             </div>
         </div>
-        <h2>My Addons (World of Warcraft)</h2>
+        <h2>My Addons<br>(World of Warcraft)</h2>
         <div class="grid-container">
             <div class="addon-item">
                 <a href="https://github.com/ChibachiTV/HardcoreAlerts" target="_blank" rel="noopener noreferrer">
