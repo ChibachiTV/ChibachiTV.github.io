@@ -185,6 +185,19 @@
         header a, footer a {
             color: #fff; /* Hover and focus states for footer links will be black */
         }
+        #back-to-top-button {
+            display: none; /* Initially hide the button */
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #0C345D;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
         @media (max-width: 600px) {
             /* Adjust styles for screens smaller than 600px */
             .about {
@@ -351,6 +364,8 @@
     </section>
 </div>
 
+<button id="back-to-top-button" title="Go to top">↑</button>
+
 <footer>
     <div class="footer-contact">
         <a href="https://github.com/ChibachiTV" target="_blank" rel="noopener noreferrer">
@@ -420,6 +435,35 @@
         showPrevSlide();
         pauseAutoSlide();
         autoSlideInterval = setInterval(showNextSlide, 3000);
+    });
+
+    // Add this just before the closing </body> tag
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("back-to-top-button").style.display = "block";
+        } else {
+            document.getElementById("back-to-top-button").style.display = "none";
+        }
+    }
+
+    // Scroll to top function
+    window.addEventListener('scroll', function() {
+        var backToTopButton = document.getElementById('back-to-top-button');
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+
+    // Scroll to top on click
+    document.getElementById('back-to-top-button').addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 </script>
 </body>
