@@ -100,14 +100,14 @@
         }
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 columns */
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 100px;
             padding: 20px;
             justify-content: center;
             margin: 0 auto;
         }
         .addon-item {
-            width: 300px;
+            width: 100%;
             margin-right: 25px;
             cursor: pointer;
             text-align: center;
@@ -118,7 +118,7 @@
             transition: transform 0.1s ease-in-out; /* Smooth transition for hover effect */
         }
         .addon-item img {
-            width: 300px;
+            width: 100%;
             height: auto;
             max-height: 300px;
             max-width: 300px;
@@ -161,13 +161,13 @@
             bottom: 0;
         }
         .footer-contact {
+            font-size: 1.5em;
             position: relative;
             cursor: pointer;
             display: flex;
             justify-content: center;
             gap: 3rem;
             margin-top: 1rem;
-            transition: transform 0.1s ease-in-out; /* Smooth transition for hover effect */
         }
         .footer-contact a {
             transition: transform 0.1s ease-in-out; /* Smooth transition for hover effect */
@@ -318,14 +318,14 @@
         <div class="grid-container">
             <div class="addon-item">
                 <a href="https://github.com/ChibachiTV/HardcoreAlerts" target="_blank" rel="noopener noreferrer">
-                    <img src="https://private-user-images.githubusercontent.com/21694313/391991940-d3bbfdd5-9c96-4a90-9cea-225f1320bdd7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ4MjY4NTEsIm5iZiI6MTczNDgyNjU1MSwicGF0aCI6Ii8yMTY5NDMxMy8zOTE5OTE5NDAtZDNiYmZkZDUtOWM5Ni00YTkwLTljZWEtMjI1ZjEzMjBiZGQ3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMjIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjIyVDAwMTU1MVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTEyYzMzNjg1MjA3NjYxMWM2YWJkZTc3NjMwZGY1MGRiNzE5NDkwOGVhOWE4OGFmNmM0ZDlkZjAwZjQwOWU1YzkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.rvoOKuAhCm9XpiZPD7qrWC7olqmAwiaJi0dNX-jYwEg" alt="Addon 1">
+                    <img src="images/hardcore-alerts.png" alt="Addon 1">
                     <h3>Hardcore Alerts</h3>
                 </a>
                 <p>A World of Warcraft addon giving customizability to Blizzard's hardcore death alerts.</p>
             </div>
             <div class="addon-item">
                 <a href="https://github.com/ChibachiTV/Grinder" target="_blank" rel="noopener noreferrer">
-                    <img src="https://private-user-images.githubusercontent.com/21694313/397957187-ed450e3f-9c2a-43ac-a96d-cc46374f39f4.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ4MjY5MzUsIm5iZiI6MTczNDgyNjYzNSwicGF0aCI6Ii8yMTY5NDMxMy8zOTc5NTcxODctZWQ0NTBlM2YtOWMyYS00M2FjLWE5NmQtY2M0NjM3NGYzOWY0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMjIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjIyVDAwMTcxNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTE2NDNkNjRkMDU3MDg2ZTY1YTY1MzY0YWEwNmI4NjFmNWEzY2U3MWMyYzZlMDk1NzI4ZjkyYjVjOGZjZjMxYjEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.a9660m_bNfkRTGf8i2jSumCO6SBRHHUY8EtfVrHqMCw" alt="Addon 2">
+                    <img src="images/grinder.png" alt="Addon 2">
                     <h3>Grinder</h3>
                 </a>
                 <p>A World of Warcraft addon for tracking how many more (mobs/quests) a player needs until they level up.</p>
