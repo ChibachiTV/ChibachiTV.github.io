@@ -131,6 +131,13 @@
       .grid-two { grid-template-columns: 1fr; }
       .project-content { grid-template-columns: 1fr; }
     }
+      /* Subtle reveal animations */
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* Slight hover lift for badges */
+    .badge { transition: transform .12s ease; }
+    .badge:hover { transform: translateY(-2px); }
   </style>
 </head>
 <body>
@@ -165,7 +172,7 @@
         </div>
       </div>
     </header>
-    <section class="about grid-two">
+    <section class="about grid-two reveal">
       <article class="card panel">
         <h2>About</h2>
         <p>I am a Japan-based programmer, composer, and graphic designer with expertise in creating engaging bullet hell games. I am passionate about pushing the boundaries of game design and development. I create a variety of games that mix genres and play styles to craft a compelling narrative with every game.</p>
@@ -179,7 +186,7 @@
         </div>
       </aside>
     </section>
-    <section class="projects panel" aria-label="Projects">
+    <section class="projects panel reveal" aria-label="Projects">
       <div class="projects-header">
         <h2 style="margin:0">Selected Games</h2>
         <div class="controls" aria-label="Carousel controls">
@@ -190,7 +197,7 @@
       <div class="rail" id="rail" aria-live="polite">
         <article class="card game panel" data-title="Starlight Vortex" data-desc="Arcade bullet hell with orbiting spell cores and adaptive patterns that learn from the player." data-img="https://picsum.photos/seed/bullet1/1200/675" data-tags="Arcade, Boss rush, Reactive patterns" data-link="https://chibachi.itch.io/">
           <div class="thumb">
-            <img src="https://picsum.photos/seed/bullet1/800/450" alt="Starlight Vortex screenshot placeholder" />
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bullet1/800/450" alt="Starlight Vortex screenshot placeholder" />
             <div class="glow"></div>
           </div>
           <div>
@@ -200,7 +207,7 @@
         </article>
         <article class="card game panel" data-title="Crimson Witch" data-desc="Story-driven shmup chapter featuring risk–reward spell weaving and cinematic boss duels." data-img="https://picsum.photos/seed/bullet2/1200/675" data-tags="Story, Spell weaving, Cinematic" data-link="https://chibachi.itch.io/">
           <div class="thumb">
-            <img src="https://picsum.photos/seed/bullet2/800/450" alt="Crimson Witch screenshot placeholder" />
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bullet2/800/450" alt="Crimson Witch screenshot placeholder" />
             <div class="glow"></div>
           </div>
           <div>
@@ -210,7 +217,7 @@
         </article>
         <article class="card game panel" data-title="Gliderfall" data-desc="Conway-inspired patterns create shifting safe zones—survive the living labyrinth." data-img="https://picsum.photos/seed/bullet3/1200/675" data-tags="Conway, Dynamic patterns, Survival" data-link="https://chibachi.itch.io/">
           <div class="thumb">
-            <img src="https://picsum.photos/seed/bullet3/800/450" alt="Gliderfall screenshot placeholder" />
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bullet3/800/450" alt="Gliderfall screenshot placeholder" />
             <div class="glow"></div>
           </div>
           <div>
@@ -220,7 +227,7 @@
         </article>
         <article class="card game panel" data-title="Neon Lattice" data-desc="Twin-stick meets danmaku: thread through lattice fields as the grid folds in real time." data-img="https://picsum.photos/seed/bullet4/1200/675" data-tags="Twin-stick, Grid fold, Danmaku" data-link="https://chibachi.itch.io/">
           <div class="thumb">
-            <img src="https://picsum.photos/seed/bullet4/800/450" alt="Neon Lattice screenshot placeholder" />
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bullet4/800/450" alt="Neon Lattice screenshot placeholder" />
             <div class="glow"></div>
           </div>
           <div>
@@ -230,7 +237,7 @@
         </article>
         <article class="card game panel" data-title="Echo Bloom" data-desc="Melodic patterns bloom with your inputs—compose your route through cascading barrages." data-img="https://picsum.photos/seed/bullet5/1200/675" data-tags="Music, Input-driven, Flow" data-link="https://chibachi.itch.io/">
           <div class="thumb">
-            <img src="https://picsum.photos/seed/bullet5/800/450" alt="Echo Bloom screenshot placeholder" />
+            <img loading="lazy" decoding="async" src="https://picsum.photos/seed/bullet5/800/450" alt="Echo Bloom screenshot placeholder" />
             <div class="glow"></div>
           </div>
           <div>
@@ -254,7 +261,7 @@
       </div>
     </dialog>
 
-    <footer>© <span id="year"></span> ChibachiTV</footer>
+    <footer class="reveal">© <span id="year"></span> ChibachiTV</footer>
   </div>
 
   <!-- Single consolidated script to avoid duplicate declarations -->
@@ -349,6 +356,66 @@
     // Simple runtime checks (dev only)
     console.assert(document.querySelectorAll('#projectDialog').length === 1, 'Expected exactly one project dialog');
     console.assert(!document.querySelector('script[data-dup]'), 'No duplicate scripts expected');
+  </script>
+  <script>
+    // IntersectionObserver to reveal sections and cards subtly
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .card.game').forEach(el=> io.observe(el));
+
+    // Try to load dynamic projects from /projects.json (built by GitHub Action)
+    // Expected schema: [{title,img,thumb,desc,tags:[..],link}]
+    async function loadProjects(){
+      try{
+        const res = await fetch('./projects.json', {cache:'no-store'});
+        if(!res.ok) return;
+        const items = await res.json();
+        if(!Array.isArray(items) || !items.length) return;
+        const railEl = document.getElementById('rail');
+        railEl.innerHTML = items.map(p=>`
+          <article class="card game panel" data-title="${p.title||''}" data-desc="${p.desc||''}" data-img="${p.img||p.thumb||''}" data-tags="${(p.tags||[]).join(', ')}" data-link="${p.link||'#'}">
+            <div class="thumb">
+              <img ${p.thumb?`src="${p.thumb}"`:''} alt="${p.title||'Project'} screenshot" loading="lazy" decoding="async" />
+              <div class="glow"></div>
+            </div>
+            <div>
+              <h3>${p.title||'Untitled'}</h3>
+              <p>${p.desc||''}</p>
+            </div>
+          </article>`).join('');
+        // Rebind hover glow and click handlers for newly injected cards
+        railEl.querySelectorAll('.card.game').forEach(card => {
+          const glow = card.querySelector('.glow');
+          card.addEventListener('mousemove', (e) => {
+            const r = card.getBoundingClientRect();
+            const x = ((e.clientX - r.left) / r.width) * 100; const y = ((e.clientY - r.top) / r.height) * 100;
+            glow?.style.setProperty('--mx', x + '%'); glow?.style.setProperty('--my', y + '%');
+          });
+          io.observe(card);
+          card.addEventListener('click', () => openProjectDialog(card));
+        });
+      }catch(err){ /* silent fallback to hardcoded cards */ }
+    }
+    loadProjects();
+
+    // Extracted function so it works for both static and dynamic cards
+    function openProjectDialog(card){
+      const dlg = document.getElementById('projectDialog');
+      if(!dlg) return;
+      const title = card.getAttribute('data-title') || 'Project';
+      const desc  = card.getAttribute('data-desc')  || '';
+      const img   = card.getAttribute('data-img');
+      const link  = card.getAttribute('data-link') || '#';
+      const tags  = (card.getAttribute('data-tags') || '').split(',').map(t => t.trim()).filter(Boolean);
+      dlg.querySelector('#pdTitle').textContent = title;
+      dlg.querySelector('#pdDesc').textContent  = desc;
+      const imgEl = dlg.querySelector('#pdImg'); if (imgEl) { imgEl.src = img || ''; imgEl.alt = title + ' screenshot'; }
+      const tagsWrap = dlg.querySelector('#pdTags'); if (tagsWrap) { tagsWrap.innerHTML=''; tags.forEach(t=>{ const s=document.createElement('span'); s.className='badge'; s.textContent=t; tagsWrap.appendChild(s); }); }
+      const linkEl = dlg.querySelector('#pdLink'); if (linkEl) { linkEl.href = link; }
+      try { dlg.showModal(); } catch { dlg.show(); }
+    }
+    document.querySelectorAll('.card.game').forEach(card=> card.addEventListener('click', ()=>openProjectDialog(card)));
   </script>
 </body>
 </html>
