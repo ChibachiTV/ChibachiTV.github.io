@@ -1,481 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="https://cdn.bsky.app/img/avatar/plain/did:plc:6vdf3r2eh4v5mmvdbkoc3e57/bafkreicjutgsbhvdxvcxodtnhrvsk4roknlkzmpf5bzfzwxse7e3zekg5u@jpeg">
-    <title>Chibachi</title>
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Chibachi - A Japan-based programmer, composer, and graphic designer who enjoys making bullet hells.">
-    <meta name="keywords" content="bullet hell, programming, composer, graphics design, Chibachi TV">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ChibachiTV — Portfolio</title>
+  <meta name="description" content="Portfolio of ChibachiTV — Japan-based programmer, composer, and graphic designer creating engaging bullet hell games." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0f14;
+      --panel: rgba(255,255,255,0.06);
+      --panel-border: rgba(255,255,255,0.12);
+      --text: #e6e9ef;
+      --muted: #b3b9c6;
+      --accent: #7aa2ff;
+      --accent-2: #8bf0d9;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --grad: radial-gradient(1000px 600px at 80% -10%, rgba(122,162,255,0.25), transparent 60%),
+              radial-gradient(800px 600px at 0% 100%, rgba(139,240,217,0.18), transparent 60%),
+              linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f7fb;
+        --panel: rgba(0,0,0,0.04);
+        --panel-border: rgba(0,0,0,0.08);
+        --text: #0f1220;
+        --muted: #475073;
+        --accent: #2b59ff;
+        --accent-2: #0bbf9a;
+        --shadow: 0 10px 30px rgba(0,0,0,0.10);
+      }
+    }
+    html[data-theme="light"] {
+      --bg: #f6f7fb;
+      --panel: rgba(0,0,0,0.04);
+      --panel-border: rgba(0,0,0,0.08);
+      --text: #0f1220;
+      --muted: #475073;
+      --accent: #2b59ff;
+      --accent-2: #0bbf9a;
+      --shadow: 0 10px 30px rgba(0,0,0,0.10);
+    }
+    html[data-theme="dark"] {
+      --bg: #0c0f14;
+      --panel: rgba(255,255,255,0.06);
+      --panel-border: rgba(255,255,255,0.12);
+      --text: #e6e9ef;
+      --muted: #b3b9c6;
+      --accent: #7aa2ff;
+      --accent-2: #8bf0d9;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: "Poppins", serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header {
-            background-color: #0C345D;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-            /*position: sticky;*/
-            top: 0;
-            transition: top 0.3s ease-in-out; /* Add a smooth transition for the header's position */
-        }
+    /* Base */
+    body { margin: 0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); background-image: var(--grad); background-attachment: fixed; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 92vw); margin: 0 auto; padding: 24px 0 80px; }
+    .panel { background: var(--panel); border: 1px solid var(--panel-border); border-radius: var(--radius); box-shadow: var(--shadow); backdrop-filter: blur(8px) saturate(120%); }
+    .muted { color: var(--muted); }
 
-        .contact-photo {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.1s ease-in-out; /* Smooth transition for hover effect */
-        }
-        .contact-photo:hover {
-            transform: scale(1.2);
-        }
-        .skills-container {
-            display: flex;
-            justify-content: center; /* Distribute space between the columns */
-            width: 100%;
-        }
-        .skills-column {
-            list-style-type: none; /* Remove bullet points */
-            width: 25%; /* Adjust the width as needed */
-            padding: 2%;
-        }
-        .skills-column li {
-            margin-bottom: 10px;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            flex: 1;
-        }
-        section {
-            padding: 20px 0;
-        }
-        h2 {
-            color: #333;
-        }
-        .about-me {
-            text-align: center;
-        }
-        .projects {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel-container {
-            position: relative;
-            padding: 50px;
-            overflow: hidden;
-        }
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            transition: transform 0.1s ease-in-out; /* Smooth transition for hover effect */
-        }
-        .carousel-button.prev {
-            left: 10px;
-        }
-        .carousel-button.next {
-            right: 10px;
-        }
-        .carousel-button:hover {
-            transform: scale(1.5); /* Slight zoom effect on hover */
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 100px;
-            padding: 20px;
-            justify-content: center;
-            margin: 0 auto;
-        }
-        .addon-item {
-            width: 100%;
-            margin-right: 25px;
-            cursor: pointer;
-            text-align: center;
-            padding: 10px;
-            background-color: #f4f4f4;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5%;
-            transition: transform 0.1s ease-in-out; /* Smooth transition for hover effect */
-        }
-        .addon-item img {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            max-width: 300px;
-            border-radius: 5%;
-            margin-bottom: 10px;            
-        }
-        .addon-item:hover {
-            transform: scale(1.05); /* Slight zoom effect on hover */
-            background-color: #ddd; /* Lighter background to distinguish it from others */
-        }
-        .project-item {
-            width: 300px;
-            margin-right: 25px;
-            cursor: pointer;
-            text-align: center;
-            padding: 10px;
-            background-color: #f4f4f4;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5%;
-            transition: transform 0.1s ease-in-out; /* Smooth transition for hover effect */
-        }
-        .project-item img {
-            width: 300px;
-            height: auto;
-            max-height: 300px;
-            max-width: 300px;
-            border-radius: 5%;
-            margin-bottom: 10px;            
-        }
-        .project-item:hover {
-            transform: scale(1.05); /* Slight zoom effect on hover */
-            background-color: #ddd; /* Lighter background to distinguish it from others */
-        }
-        footer {
-            background-color: #0C345D;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-            width: 100%;
-            bottom: 0;
-        }
-        .footer-contact {
-            font-size: 1.5em;
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 1rem;
-        }
-        .footer-contact a {
-            transition: transform 0.1s ease-in-out; /* Smooth transition for hover effect */
-        }
-        .footer-contact a:hover{
-            transform: scale(1.5);
-        }
-        header a, footer a {
-            color: #fff; /* Hover and focus states for footer links will be black */
-        }
-        #back-to-top-button {
-            display: none; /* Initially hide the button */
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            padding: 15px 30px; /* Increased padding for a more substantial look */
-            border-radius: 30px;
-            background-color: #0C345D; /* Darker background color */
-            color: white;
-            text-decoration: none;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
-        }
-        #back-to-top-button:hover {
-            background-color: #0B2F46; /* Slightly darker color on hover */
-            transform: scale(1.2);
-        }
-        @media (max-width: 600px) {
-            /* Adjust styles for screens smaller than 600px */
-            .skills-column {
-                width: 60%;
-                font-size: 0.85em;
-            }
-            .footer-contact {
-                gap: 1.5rem;
-            }
-        }
-    </style>
+    /* Topbar */
+    .topbar { display:flex; justify-content:flex-end; gap:10px; margin-top: 8px; }
+    .theme-toggle { border:1px solid var(--panel-border); background: var(--panel); border-radius: 999px; padding: 8px 12px; cursor: pointer; display:flex; align-items:center; gap:8px; }
+    .theme-toggle small { color: var(--muted); }
+
+    /* Hero */
+    header.hero { padding: 28px; margin-top: 16px; display: grid; grid-template-columns: 112px 1fr; gap: 24px; align-items: center; }
+    .avatar { width: 112px; height: 112px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff 2%, #b0c3ff 12%, #7aa2ff 32%, #3e4b9e 60%, #1b203a 100%); border: 2px solid var(--panel-border); box-shadow: 0 10px 30px rgba(122,162,255,0.25); overflow: hidden; }
+    .avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+    .hero h1 { margin:0; font-weight:700; font-size: clamp(28px, 4.2vw, 46px); line-height:1.15; }
+    .hero p { margin: 6px 0 16px; }
+
+    /* Social links */
+    .links { display:flex; flex-wrap:wrap; gap:12px; }
+    .icon-btn { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; border:1px solid var(--panel-border); background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02)); transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease; }
+    .icon-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(122,162,255,0.18); border-color: rgba(122,162,255,0.45); }
+    .icon-btn svg { width:22px; height:22px; }
+
+    /* About + Skills */
+    section.about { margin-top: 24px; display:grid; gap: 16px; }
+    .grid-two { display:grid; grid-template-columns: 1.2fr .8fr; gap: 24px; }
+    .card { padding: 18px; }
+    .card h2 { margin: 0 0 8px; font-size: 20px; }
+    .skills { display:grid; gap: 14px; }
+    .skills-group { border:1px solid var(--panel-border); border-radius: 14px; padding: 12px; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); }
+    .skills-group h3 { margin:0 0 10px; font-size: 14px; color: var(--muted); letter-spacing:.4px; text-transform: uppercase; }
+    .skills-list { display:flex; flex-wrap:wrap; gap:8px; }
+    .badge { padding:6px 10px; border-radius:999px; border:1px solid var(--panel-border); background: var(--panel); font-size: 13px; font-family: 'Inter', sans-serif; }
+
+    /* Projects */
+    .projects { margin-top: 28px; padding: 18px; }
+    .projects-header { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom: 8px; }
+    .projects .controls { display:flex; gap:10px; }
+    .btn { padding:10px 14px; border-radius: 12px; border:1px solid var(--panel-border); background: var(--panel); cursor:pointer; color: var(--text); transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(139,240,217,0.18); border-color: rgba(139,240,217,0.45); }
+
+    .rail { position: relative; overflow-x: auto; overflow-y: visible; scroll-snap-type: x mandatory; display: grid; grid-auto-flow: column; grid-auto-columns: clamp(240px, 36%, 360px); gap: 18px; padding: 14px 6px 16px; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
+    .rail::-webkit-scrollbar { height: 10px; }
+    .rail::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 999px; }
+
+    .card.game { position: relative; scroll-snap-align: start; overflow: hidden; display:flex; flex-direction:column; gap:12px; padding: 12px; isolation:isolate; transition: transform .18s ease, box-shadow .22s ease, outline-color .2s ease; outline: 1px solid var(--panel-border); }
+    .thumb { position: relative; aspect-ratio: 16/9; border-radius: 14px; overflow: hidden; background: #1b233b; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(1.05) contrast(1.02); }
+    .glow { position:absolute; inset:-40%; background: radial-gradient(300px 180px at var(--mx,50%) var(--my,50%), rgba(122,162,255,0.35), rgba(139,240,217,0.15), transparent 55%); opacity:0; transition: opacity .25s ease; pointer-events:none; mix-blend-mode: screen; }
+    .card.game:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 18px 42px rgba(122,162,255,0.20), 0 8px 26px rgba(0,0,0,0.25); }
+    .card.game:hover .glow { opacity: 1; }
+    .game h3 { margin: 0; font-size: 18px; letter-spacing: 0.2px; }
+    .game p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    /* Project dialog */
+    .project-dialog { border: none; padding: 0; width: min(980px, 94vw); border-radius: 18px; background: var(--panel); color: var(--text); box-shadow: var(--shadow); }
+    .project-dialog::backdrop { backdrop-filter: blur(6px) saturate(110%); background: rgba(0,0,0,0.35); }
+    .project-content { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; padding: 16px; }
+    .project-media { border-radius: 14px; overflow: hidden; border: 1px solid var(--panel-border); }
+    .project-media img { display:block; width:100%; height:auto; }
+    .project-meta h3 { margin: 0 0 8px; font-size: 22px; }
+    .project-meta p { margin: 0 0 12px; }
+    .project-meta .actions { margin-top: 8px; display:flex; gap: 10px; }
+    .project-dialog .close { appearance: none; border: 1px solid var(--panel-border); background: var(--panel); color: var(--text); border-radius: 10px; padding: 6px 10px; position: absolute; top: 10px; right: 10px; cursor: pointer; }
+
+    footer { text-align:center; padding: 32px 0; color: var(--muted); font-size: 14px; }
+
+    @media (max-width: 780px) {
+      header.hero { grid-template-columns: 84px 1fr; }
+      .avatar { width:84px; height:84px; }
+      .grid-two { grid-template-columns: 1fr; }
+      .project-content { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-
-<header>
-    <a href="https://chibachitv.github.io/" rel="noopener noreferrer">
-        <img src="https://cdn.bsky.app/img/avatar/plain/did:plc:6vdf3r2eh4v5mmvdbkoc3e57/bafkreicjutgsbhvdxvcxodtnhrvsk4roknlkzmpf5bzfzwxse7e3zekg5u@jpeg" alt="Contact Photo" class="contact-photo">
-    </a>
-    <h1>Chibachi</h1>
-    <div class="footer-contact">
-        <a href="https://github.com/ChibachiTV" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://www.youtube.com/@ChibachiTV" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a href="https://bsky.app/profile/chibachi.bsky.social" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-bluesky"></i>
-        </a>
-        <a href="https://www.twitch.tv/chibachitv" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-twitch"></i>
-        </a>
-        <a href="https://chibachi.itch.io/" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-itch-io"></i>
-        </a>
-        <a href="mailto:chibachi.tv@gmail.com">
-            <i class="fas fa-envelope"></i>
-        </a>
+  <div class="container">
+    <div class="topbar">
+      <button id="themeBtn" class="theme-toggle" type="button"><span id="themeIcon">🌓</span><small id="themeLabel">Auto</small></button>
     </div>
-</header>
-
-<div class="container">
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="about-me">
-            <p>I am a Japan-based programmer, composer, and graphic designer with expertise in creating engaging bullet hell games. I am passionate about pushing the boundaries of game design and development. I create a variety of games that mix genres and play styles in order to create a compelling narrative with every game.</p>
+    <header class="hero panel">
+      <div class="avatar"><!-- Add <img src="avatar.jpg" alt="ChibachiTV avatar"> if desired --></div>
+      <div>
+        <h1>ChibachiTV</h1>
+        <p class="muted">Japan-based programmer, composer, and graphic designer crafting engaging bullet hell experiences.</p>
+        <div class="links" aria-label="Social links">
+          <a class="icon-btn" href="https://github.com/ChibachiTV" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.3c0 5.2 3.3 9.7 7.8 11.3.6.1.8-.3.8-.6v-2.1c-3.2.7-3.8-1.5-3.8-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.6.1-.6.1-.6 1.1.1 1.7 1.1 1.7 1.1 1 .1.8 1.9 2.7 1.4.1-.7.4-1.1.7-1.4-2.6-.3-5.4-1.4-5.4-6.2 0-1.4.5-2.6 1.2-3.6-.1-.3-.5-1.7.1-3.5 0 0 1-.3 3.5 1.3a12.4 12.4 0 0 1 6.4 0c2.5-1.6 3.5-1.3 3.5-1.3.6 1.8.2 3.2.1 3.5.8 1 1.2 2.2 1.2 3.6 0 4.8-2.8 5.8-5.4 6.2.4.3.8 1 .8 2v3c0 .3.2.7.8.6 4.5-1.6 7.8-6.1 7.8-11.3A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://www.youtube.com/@ChibachiTV" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a4.7 4.7 0 0 0-3.3-3.3C18.5 2.2 12 2.2 12 2.2s-6.5 0-8.2.7A4.7 4.7 0 0 0 .5 6.2 49.2 49.2 0 0 0 0 12a49.2 49.2 0 0 0 .5 5.8 4.7 4.7 0 0 0 3.3 3.3c1.7.7 8.2.7 8.2.7s6.5 0 8.2-.7a4.7 4.7 0 0 0 3.3-3.3A49.2 49.2 0 0 0 24 12a49.2 49.2 0 0 0-.5-5.8ZM9.8 15.5v-7l6.2 3.5-6.2 3.5Z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://bsky.app/profile/chibachi.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 13.4c1.9 2.3 4.6 5.1 6.5 5.1 1.1 0 1.5-.7 1.5-1.8 0-1.5-.8-2.6-1.6-3.6 2.4.7 4.6 2.1 4.6 4.9 0 2.3-1.5 3.3-3.4 3.3-2.4 0-5-2.2-7.6-5.2-2.6 3-5.2 5.2-7.7 5.2-1.9 0-3.4-1-3.4-3.3 0-2.8 2.3-4.2 4.6-4.9-.8 1-1.6 2.1-1.6 3.6 0 1.1.4 1.8 1.5 1.8 1.9 0 4.6-2.8 6.6-5.1-2.6-2.8-5.6-6.3-5.6-8.5C6.4 3 7.7 2 9.5 2c1.9 0 2.8 1.3 2.8 3.1C12.3 3.3 13.2 2 15.1 2c1.8 0 3 1 3 2.8 0 2.3-3 5.7-6.1 8.6Z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://www.twitch.tv/chibachitv" target="_blank" rel="noopener" aria-label="Twitch">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 2h18v12.5l-5 4.5h-4l-3 3H6v-3H3V2Zm2 2v12h4v3l3-3h4.2L19 13.7V4H5Zm9 3h2v5h-2V7Zm-4 0h2v5h-2V7Z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://chibachi.itch.io/" target="_blank" rel="noopener" aria-label="itch.io">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.8 3h16.4L23 5.8V13l-5.4 5.4h-4.8L9 23l-3.6-4.6H3L1 13V5.8L3.8 3Zm.7 3L3 7.5V12l1.3 4h3.3l2.5 3.2L12.6 16h4.8l2.6-2.6V7.5L19.5 6H4.5ZM8 9h2v4H8V9Zm6 0h2v4h-2V9Z"/></svg>
+          </a>
+          <a class="icon-btn" href="mailto:chibachi.tv@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 5h20v14H2V5Zm2 2v10h16V7l-8 5L4 7Z"/></svg>
+          </a>
         </div>
-        <div class="skills-container">
-            <ul class="skills-column">
-                <h3>Languages</h3>
-                <li>C#</li>
-                <li>C++</li>
-                <li>GDScript</li>
-                <li>Lua</li>
-            </ul>
-            <ul class="skills-column">
-                <h3>Software</h3>
-                <li>Affinity Photo</li>
-                <li>Affinity Designer</li>
-                <li>Photoshop</li>
-                <li>Illustrator</li>
-            </ul>
-            <ul class="skills-column">
-                <h3>Engines / API</h3>
-                <li>Unity</li>
-                <li>Godot</li>
-                <li>SFML</li>
-                <li>SDL</li>
-            </ul>
+      </div>
+    </header>
+    <section class="about grid-two">
+      <article class="card panel">
+        <h2>About</h2>
+        <p>I am a Japan-based programmer, composer, and graphic designer with expertise in creating engaging bullet hell games. I am passionate about pushing the boundaries of game design and development. I create a variety of games that mix genres and play styles to craft a compelling narrative with every game.</p>
+      </article>
+      <aside class="card panel">
+        <h2>Skills</h2>
+        <div class="skills">
+          <div class="skills-group"><h3>Languages</h3><div class="skills-list"><span class="badge">C#</span><span class="badge">C++</span><span class="badge">GDScript</span><span class="badge">Lua</span></div></div>
+          <div class="skills-group"><h3>Software</h3><div class="skills-list"><span class="badge">Affinity Photo</span><span class="badge">Affinity Designer</span><span class="badge">Photoshop</span><span class="badge">Illustrator</span></div></div>
+          <div class="skills-group"><h3>Engines / API</h3><div class="skills-list"><span class="badge">Unity</span><span class="badge">Godot</span><span class="badge">SFML</span><span class="badge">SDL</span></div></div>
         </div>
-        <div class = "achievements">
-            <h3>🏆 Achievements 🏆</h3>
-            <p><a href="https://chibachi.itch.io/pomelo-vs-the-universe">Pomelo vs. the Universe</a> got top 10 for Presentation and Enjoyment in the <a href="https://itch.io/jam/major-jam-4-cosmic">Major Jam 4: Cosmic</a> game jam.</p>
-            <p><a href="https://chibachi.itch.io/starship-sentinel-insurgency">Starship Sentinel: Insurgency</a> got top 10 for Fun in the <a href="https://itch.io/jam/bullet-hell-jam-2023">Bullet Hell Jam 2023</a> game jam.</p>
+      </aside>
+    </section>
+    <section class="projects panel" aria-label="Projects">
+      <div class="projects-header">
+        <h2 style="margin:0">Selected Games</h2>
+        <div class="controls" aria-label="Carousel controls">
+          <button class="btn" id="prev" type="button" aria-label="Previous">◀</button>
+          <button class="btn" id="next" type="button" aria-label="Next">▶</button>
         </div>
+      </div>
+      <div class="rail" id="rail" aria-live="polite">
+        <article class="card game panel" data-title="Starlight Vortex" data-desc="Arcade bullet hell with orbiting spell cores and adaptive patterns that learn from the player." data-img="https://picsum.photos/seed/bullet1/1200/675" data-tags="Arcade, Boss rush, Reactive patterns" data-link="https://chibachi.itch.io/">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/bullet1/800/450" alt="Starlight Vortex screenshot placeholder" />
+            <div class="glow"></div>
+          </div>
+          <div>
+            <h3>Starlight Vortex</h3>
+            <p>Orbiting spell cores and adaptive patterns that learn from the player.</p>
+          </div>
+        </article>
+        <article class="card game panel" data-title="Crimson Witch" data-desc="Story-driven shmup chapter featuring risk–reward spell weaving and cinematic boss duels." data-img="https://picsum.photos/seed/bullet2/1200/675" data-tags="Story, Spell weaving, Cinematic" data-link="https://chibachi.itch.io/">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/bullet2/800/450" alt="Crimson Witch screenshot placeholder" />
+            <div class="glow"></div>
+          </div>
+          <div>
+            <h3>Crimson Witch</h3>
+            <p>Risk–reward spell weaving with cinematic boss duels.</p>
+          </div>
+        </article>
+        <article class="card game panel" data-title="Gliderfall" data-desc="Conway-inspired patterns create shifting safe zones—survive the living labyrinth." data-img="https://picsum.photos/seed/bullet3/1200/675" data-tags="Conway, Dynamic patterns, Survival" data-link="https://chibachi.itch.io/">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/bullet3/800/450" alt="Gliderfall screenshot placeholder" />
+            <div class="glow"></div>
+          </div>
+          <div>
+            <h3>Gliderfall</h3>
+            <p>Shifting safe zones in a living labyrinth.</p>
+          </div>
+        </article>
+        <article class="card game panel" data-title="Neon Lattice" data-desc="Twin-stick meets danmaku: thread through lattice fields as the grid folds in real time." data-img="https://picsum.photos/seed/bullet4/1200/675" data-tags="Twin-stick, Grid fold, Danmaku" data-link="https://chibachi.itch.io/">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/bullet4/800/450" alt="Neon Lattice screenshot placeholder" />
+            <div class="glow"></div>
+          </div>
+          <div>
+            <h3>Neon Lattice</h3>
+            <p>Thread through folding lattice fields in real time.</p>
+          </div>
+        </article>
+        <article class="card game panel" data-title="Echo Bloom" data-desc="Melodic patterns bloom with your inputs—compose your route through cascading barrages." data-img="https://picsum.photos/seed/bullet5/1200/675" data-tags="Music, Input-driven, Flow" data-link="https://chibachi.itch.io/">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/bullet5/800/450" alt="Echo Bloom screenshot placeholder" />
+            <div class="glow"></div>
+          </div>
+          <div>
+            <h3>Echo Bloom</h3>
+            <p>Compose your route through cascading barrages.</p>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section id="projects">
-        <h2>My Games</h2>
-        <div class="projects">
-            <div class="carousel-container">
-                <div class="carousel-inner">
-                    <!-- Pomelo vs. the Universe -->
-                    <div class="project-item">
-                        <a href="https://chibachi.itch.io/pomelo-vs-the-universe" target="_blank" rel="noopener noreferrer">
-                            <img src="images/pommy.png" alt="Project 1">
-                            <h3>Pomelo vs. the Universe</h3>
-                        </a>
-                    </div>
-
-                    <!-- Oregon Nell -->
-                    <div class="project-item">
-                        <a href="https://chibachi.itch.io/oregon-nell" target="_blank" rel="noopener noreferrer">
-                            <img src="images/nell.png" alt="Project 2">
-                            <h3>Oregon Nell</h3>
-                        </a>
-                    </div>
-
-                    <!-- 星辰再生 ~ Rho's Odyssey -->
-                    <div class="project-item">
-                        <a href="https://chibachi.itch.io/rhos-odyssey" target="_blank" rel="noopener noreferrer">
-                            <img src="images/rho.png" alt="Project 3">
-                            <h3>星辰再生 ~ Rho's Odyssey</h3>
-                        </a>
-                    </div>
-
-                    <!-- Starship Sentinel: Insurgency -->
-                    <div class="project-item">
-                        <a href="https://chibachi.itch.io/starship-sentinel-insurgency" target="_blank" rel="noopener noreferrer">
-                            <img src="images/nx7.png" alt="Project 4">
-                            <h3>Starship Sentinel: Insurgency</h3>
-                        </a>
-                    </div>
-
-                    <!-- Serpent of the Storm ~ Fall of Yamata-no-Orochi -->
-                    <div class="project-item">
-                        <a href="https://chibachi.itch.io/serpent-of-the-storm-fall-of-yamata-no-orochi" target="_blank" rel="noopener noreferrer">
-                            <img src="images/orochi.png" alt="Project 5">
-                            <h3>Serpent of the Storm ~ Fall of Yamata-no-Orochi</h3>
-                        </a>
-                    </div>
-
-                    <!-- Half Moon Manor -->
-                    <div class="project-item">
-                        <a href="https://chibachi.itch.io/half-moon-manor" target="_blank" rel="noopener noreferrer">
-                            <img src="images/halfmoon.png" alt="Project 6">
-                            <h3>Half Moon Manor</h3>
-                        </a>
-                    </div>
-
-                    <!-- The Ides of March -->
-                    <div class="project-item">
-                        <a href="https://chibachi.itch.io/the-ides-of-march" target="_blank" rel="noopener noreferrer">
-                            <img src="images/ides.png" alt="Project 7">
-                            <h3>The Ides of March</h3>
-                        </a>
-                    </div>
-
-                    <!-- Undefined Esotericism -->
-                    <div class="project-item">
-                        <a href="https://chibachi.itch.io/undefined-esotericism" target="_blank" rel="noopener noreferrer">
-                            <img src="images/undefined.png" alt="Project 8">
-                            <h3>Undefined Esotericism</h3>
-                        </a>
-                    </div>
-                </div>
-                <button id="prevButton" class="carousel-button prev">&#10094;</button>
-                <button id="nextButton" class="carousel-button next">&#10095;</button>
-            </div>
+    <dialog id="projectDialog" class="project-dialog">
+      <form method="dialog"><button class="close" aria-label="Close">×</button></form>
+      <div class="project-content">
+        <div class="project-media"><img id="pdImg" alt="Selected project screenshot"></div>
+        <div class="project-meta">
+          <h3 id="pdTitle">Title</h3>
+          <p id="pdDesc" class="muted">Description</p>
+          <div id="pdTags" class="skills-list" aria-label="Tags"></div>
+          <div class="actions"><a id="pdLink" class="btn" target="_blank" rel="noopener">Play / Learn More</a></div>
         </div>
-        <h2>My Addons<br>(World of Warcraft)</h2>
-        <div class="grid-container">
-            <div class="addon-item">
-                <a href="https://github.com/ChibachiTV/HardcoreAlerts" target="_blank" rel="noopener noreferrer">
-                    <img src="images/hardcore-alerts.png" alt="Addon 1">
-                    <h3>Hardcore Alerts</h3>
-                </a>
-                <p>A World of Warcraft addon giving customizability to Blizzard's hardcore death alerts.</p>
-            </div>
-            <div class="addon-item">
-                <a href="https://github.com/ChibachiTV/Grinder" target="_blank" rel="noopener noreferrer">
-                    <img src="images/grinder.png" alt="Addon 2">
-                    <h3>Grinder</h3>
-                </a>
-                <p>A World of Warcraft addon for tracking how many more (mobs/quests) a player needs until they level up.</p>
-            </div>
-            <!-- Add more addon items as needed -->
-        </div>
-    </section>
-</div>
+      </div>
+    </dialog>
 
-<button id="back-to-top-button" title="Go to top">↑</button>
+    <footer>© <span id="year"></span> ChibachiTV</footer>
+  </div>
 
-<footer>
-    <div class="footer-contact">
-        <a href="https://github.com/ChibachiTV" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://www.youtube.com/@ChibachiTV" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-youtube"></i>
-        </a>
-        <a href="https://bsky.app/profile/chibachi.bsky.social" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-bluesky"></i>
-        </a>
-        <a href="https://www.twitch.tv/chibachitv" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-twitch"></i>
-        </a>
-        <a href="https://chibachi.itch.io/" target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-itch-io"></i>
-        </a>
-        <a href="mailto:chibachi.tv@gmail.com">
-            <i class="fas fa-envelope"></i>
-        </a>
-    </div>
-    <p>&copy; 2024 Chibachi - All Rights Reserved</p>
-</footer>
+  <!-- Single consolidated script to avoid duplicate declarations -->
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<script>
-    // Simple script to add basic carousel functionality
-    let currentSlide = 0;
-    const items = document.querySelectorAll('.project-item');
-    const totalItems = items.length;
-    const carouselInner = document.getElementById('carouselInner');
-    let autoSlideInterval;
-
-    function showNextSlide() {
-        currentSlide = (currentSlide + 1) % totalItems;
-        updateCarousel();
-    }
-
-    function showPrevSlide() {
-        currentSlide = (currentSlide - 1 + totalItems) % totalItems;
-        updateCarousel();
-    }
-
-    function updateCarousel() {
-        const offset = -currentSlide * 345; // Assuming each item takes about 320px width
-        document.querySelector('.carousel-inner').style.transform = `translateX(${offset}px)`;
-    }
-
-    // Start automatic sliding
-    autoSlideInterval = setInterval(showNextSlide, 3000); // Change every 3 seconds
-
-    // Function to pause automatic sliding
-    function pauseAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
-
-    // Add event listeners for navigation buttons
-    const nextButton = document.getElementById('nextButton');
-    const prevButton = document.getElementById('prevButton');
-
-    nextButton.addEventListener('click', () => {
-        showNextSlide();
-        pauseAutoSlide();
-        autoSlideInterval = setInterval(showNextSlide, 3000);
+    // Theme toggle
+    const themeBtn = document.getElementById('themeBtn');
+    const themeLabel = document.getElementById('themeLabel');
+    const themeIcon = document.getElementById('themeIcon');
+    const applyTheme = (m) => {
+      if (m === 'auto') document.documentElement.removeAttribute('data-theme');
+      else document.documentElement.setAttribute('data-theme', m);
+      localStorage.setItem('themeMode', m);
+      themeLabel.textContent = m.charAt(0).toUpperCase() + m.slice(1);
+      themeIcon.textContent = m === 'light' ? '☀️' : m === 'dark' ? '🌙' : '🌓';
+    };
+    const nextMode = (m) => (m === 'auto' ? 'light' : m === 'light' ? 'dark' : 'auto');
+    let currentMode = localStorage.getItem('themeMode') || 'auto';
+    applyTheme(currentMode);
+    themeBtn.addEventListener('click', () => { currentMode = nextMode(currentMode); applyTheme(currentMode); });
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if ((localStorage.getItem('themeMode') || 'auto') === 'auto') applyTheme('auto');
     });
 
-    prevButton.addEventListener('click', () => {
-        showPrevSlide();
-        pauseAutoSlide();
-        autoSlideInterval = setInterval(showNextSlide, 3000);
-    });
-
-    // Add this just before the closing </body> tag
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("back-to-top-button").style.display = "block";
-        } else {
-            document.getElementById("back-to-top-button").style.display = "none";
-        }
-    }
-
-    // Scroll to top function
-    window.addEventListener('scroll', function() {
-        var backToTopButton = document.getElementById('back-to-top-button');
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            backToTopButton.style.display = 'block';
-        } else {
-            backToTopButton.style.display = 'none';
-        }
-    });
-
-    // Scroll to top on click
-    document.getElementById('back-to-top-button').addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    // Carousel: auto-scroll + drag + buttons + keyboard
+    const rail = document.getElementById('rail');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    if (rail && prev && next) {
+      let autoTimer = null;
+      let isPointerDown = false; let startX = 0; let startLeft = 0;
+      const cardWidth = () => rail.querySelector('.card')?.getBoundingClientRect().width + 18 || 320;
+      function scrollByCards(n = 1) { rail.scrollBy({ left: cardWidth() * n, behavior: 'smooth' }); }
+      function startAuto() {
+        stopAuto();
+        autoTimer = setInterval(() => {
+          const nearEnd = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - (cardWidth() * 1.1);
+          if (nearEnd) { rail.scrollTo({ left: 0, behavior: 'smooth' }); }
+          else { scrollByCards(1); }
+        }, 3500);
+      }
+      function stopAuto() { if (autoTimer) clearInterval(autoTimer); }
+      rail.addEventListener('pointerdown', (e) => { isPointerDown = true; rail.setPointerCapture(e.pointerId); startX = e.clientX; startLeft = rail.scrollLeft; stopAuto(); });
+      rail.addEventListener('pointermove', (e) => { if (!isPointerDown) return; const dx = e.clientX - startX; rail.scrollLeft = startLeft - dx; });
+      ['pointerup','pointercancel','mouseleave'].forEach(ev => rail.addEventListener(ev, () => { isPointerDown = false; startAuto(); }));
+      prev.addEventListener('click', () => { stopAuto(); rail.scrollBy({left: -cardWidth(), behavior: 'smooth'}); startAuto(); });
+      next.addEventListener('click', () => { stopAuto(); rail.scrollBy({left:  cardWidth(), behavior: 'smooth'}); startAuto(); });
+      rail.tabIndex = 0;
+      rail.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); stopAuto(); scrollByCards(1); startAuto(); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); stopAuto(); scrollByCards(-1); startAuto(); }
+      });
+      // Glow follows mouse
+      rail.querySelectorAll('.card.game').forEach(card => {
+        const glow = card.querySelector('.glow');
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const x = ((e.clientX - r.left) / r.width) * 100; const y = ((e.clientY - r.top) / r.height) * 100;
+          glow?.style.setProperty('--mx', x + '%'); glow?.style.setProperty('--my', y + '%');
         });
-    });
-</script>
+      });
+      startAuto();
+    }
+
+    // Project Dialog
+    const dlg = document.getElementById('projectDialog');
+    if (dlg) {
+      document.querySelectorAll('.card.game').forEach(card => {
+        card.addEventListener('click', () => {
+          const title = card.getAttribute('data-title') || 'Project';
+          const desc  = card.getAttribute('data-desc')  || '';
+          const img   = card.getAttribute('data-img');
+          const link  = card.getAttribute('data-link') || '#';
+          const tags  = (card.getAttribute('data-tags') || '').split(',').map(t => t.trim()).filter(Boolean);
+          dlg.querySelector('#pdTitle').textContent = title;
+          dlg.querySelector('#pdDesc').textContent  = desc;
+          const imgEl = dlg.querySelector('#pdImg');
+          if (imgEl) { imgEl.src = img || ''; imgEl.alt = title + ' screenshot'; }
+          const tagsWrap = dlg.querySelector('#pdTags');
+          if (tagsWrap) { tagsWrap.innerHTML = ''; tags.forEach(t => { const s = document.createElement('span'); s.className='badge'; s.textContent = t; tagsWrap.appendChild(s); }); }
+          const linkEl = dlg.querySelector('#pdLink');
+          if (linkEl) { linkEl.href = link; }
+          try { dlg.showModal(); } catch { dlg.show(); }
+        });
+      });
+      const closeBtn = dlg.querySelector('.close');
+      closeBtn?.addEventListener('click', () => dlg.close());
+    }
+
+    // Simple runtime checks (dev only)
+    console.assert(document.querySelectorAll('#projectDialog').length === 1, 'Expected exactly one project dialog');
+    console.assert(!document.querySelector('script[data-dup]'), 'No duplicate scripts expected');
+  </script>
 </body>
 </html>
